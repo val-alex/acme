@@ -1,0 +1,30 @@
+{
+  "name": "acme-supermarket",
+  "version": "1.0.0",
+  "description": "ACME JavaScript Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ag-digital/acme-supermarket-test.git"
+  },
+  "keywords": [
+    "javascript",
+    "test"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ag-digital/acme-supermarket-test/issues"
+  },
+  "homepage": "https://github.com/ag-digital/acme-supermarket-test#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0"
+  }
+}
