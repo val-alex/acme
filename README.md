@@ -14,8 +14,8 @@ ACME's quest for global domination has prompted us to open a supermarket – we 
 
 Our CEO is a big fan of buy-one-get-one-free offers and of fruit tea. He wants us to add a rule to do this.
 
-The COO, though, likes low prices and wants people buying strawberries to get a price discount for bulk purchases. If you buy 3 or more strawberries, the price should drop to £4.50.
-Our check-out can scan items in any order, and because the CEO and COO change their minds often, it needs to be flexible regarding our pricing rules.
+The COO, though, likes low prices and wants people buying strawberries to get a price discount for bulk purchases. If you buy 3 or more strawberries, the price should drop to £4.50.
+Our check-out can scan items in any order, and because the CEO and COO change their minds often, it needs to be flexible regarding our pricing rules.
 
 The interface to our basket looks like this (shown in JavaScript):
 
@@ -24,7 +24,7 @@ The interface to our basket looks like this (shown in JavaScript):
     basket.add(item)
     var price = basket.total()
 
-Implement a basket system that fulfills these requirements in JavaScript.
+Implement a basket system that fulfils these requirements in JavaScript.
 
 Test Data:
 
