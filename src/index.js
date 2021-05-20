@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class Item {
   constructor(name, price, itemCode) {
@@ -7,7 +7,6 @@ class Item {
     this.itemCode = itemCode;
   }
 }
-
 
 class Basket {
   constructor(pricingRules) {
@@ -25,49 +24,48 @@ class Basket {
   }
 
   clear() {
-    return this.items = []
+    return (this.items = []);
   }
 }
 
-
-
 const pricingRules = (basket) => {
   var counts = {};
-  
+
   const twoForOne = (itemCode) => (item, counts) => {
     if (item.itemCode === itemCode && counts[itemCode] % 2 === 0) {
-        return 0.00
+      return 0.0;
     }
-  } 
+  };
 
-  const groupDiscount = (itemCode, groupSize, discountPrice) => (item, counts) => {
-    if (item.itemCode === itemCode && counts[itemCode] === groupSize) {
-        const discountForExistingItems = (groupSize - 1) * (item.price - discountPrice);
+  const groupDiscount =
+    (itemCode, groupSize, discountPrice) => (item, counts) => {
+      if (item.itemCode === itemCode && counts[itemCode] === groupSize) {
+        const discountForExistingItems =
+          (groupSize - 1) * (item.price - discountPrice);
         return discountPrice - discountForExistingItems;
-    } else if (item.itemCode === itemCode && counts[itemCode] > discountPrice)  {
+      } else if (
+        item.itemCode === itemCode &&
+        counts[itemCode] > discountPrice
+      ) {
         return discountPrice;
-    }
-  }
+      }
+    };
 
   const defaultPrice = (item) => item.price;
 
-  const rules = [
-    twoForOne('FR1'), 
-    groupDiscount('SR1', 3, 4.50), 
-    defaultPrice
-  ];
+  const rules = [twoForOne("FR1"), groupDiscount("SR1", 3, 4.5), defaultPrice];
 
-  return basket.items.map(item => {
-            counts[item.itemCode] = (counts[item.itemCode] || 0) + 1;
-              return rules.reduce((price, rule) => {
-                  return price === undefined ? rule(item, counts) : price;
-              }, undefined);
-            })
+  return basket.items.map((item) => {
+    counts[item.itemCode] = (counts[item.itemCode] || 0) + 1;
+    return rules.reduce((price, rule) => {
+      return price === undefined ? rule(item, counts) : price;
+    }, undefined);
+  });
 };
 
-const FR1 = new Item('Fruit tea', 3.11, 'FR1');
-const SR1 = new Item('Strawberries', 5.00, 'SR1');
-const CF1 = new Item('Coffee', 11.23, 'CF1');
+const FR1 = new Item("Fruit tea", 3.11, "FR1");
+const SR1 = new Item("Strawberries", 5.0, "SR1");
+const CF1 = new Item("Coffee", 11.23, "CF1");
 
 const basket = new Basket(pricingRules);
 // basket.add(FR1);
@@ -84,7 +82,7 @@ exports.FR1 = FR1;
 exports.SR1 = SR1;
 exports.CF1 = CF1;
 exports.basket = basket;
-exports.rpice = basket;
+exports.price = basket;
 //------------------------------------------------
 // Basket: FR1, SR1, FR1, CF1
 // Total price expected: £19.34
